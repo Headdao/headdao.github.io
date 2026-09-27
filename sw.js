@@ -5,7 +5,9 @@
 // 效果：同一版本重載不再受 GitHub Pages 10 分鐘快取限制／無痕模式重抓
 // 25MB——只有換版本才會下載新資產。
 const CACHE = 'happy-branch-v1';
-const VERSIONED = /index\.\d+\.(js|wasm|pck)$/;
+// 版號資產含音訊 worklet（deploy_web.sh 同步版號化——2026-09-28 前未版號化，
+// 引擎以 executable 前綴抓 worklet 404，網頁版全程無聲）。
+const VERSIONED = /index\.\d+\.(audio\.position\.worklet\.js|audio\.worklet\.js|js|wasm|pck)$/;
 
 self.addEventListener('install', () => {
   self.skipWaiting();
